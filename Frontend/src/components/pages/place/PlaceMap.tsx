@@ -80,6 +80,7 @@ export const PLACEMAP = () => {
             );
           }
 
+          console.log(markers);
           setMarkers(markers);
 
           // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
@@ -123,7 +124,10 @@ export const PLACEMAP = () => {
               onClick={() => setInfo(marker)}
             >
               {info && info.content === marker.content && (
-                <div style={{ color: "#000" }}>{marker.content}</div>
+                <div style={{ color: "#000" }}>
+                  <a href={`https://map.kakao.com/link/search/`}></a>
+                  {marker.content}
+                </div>
               )}
             </MapMarker>
           ))}

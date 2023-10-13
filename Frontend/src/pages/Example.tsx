@@ -7,52 +7,52 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import axios from "axios";
 
 const Example: React.FC = () => {
-  // const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
-  // const onFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   if (event.target.files && event.target.files.length > 0) {
-  //     setSelectedFile(event.target.files[0]);
-  //   }
-  // };
+  const onFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setSelectedFile(event.target.files[0]);
+    }
+  };
 
-  // const onUpload = async () => {
-  //   if (!selectedFile) {
-  //     console.error("No file selected");
-  //     return;
-  //   }
+  const onUpload = async () => {
+    if (!selectedFile) {
+      console.error("No file selected");
+      return;
+    }
 
-  //   const formData = new FormData();
-  //   formData.append("files", selectedFile);
+    const formData = new FormData();
+    formData.append("files", selectedFile);
 
-  //   try {
-  //     const response = await axios.post(
-  //       "http://43.202.138.58:8000/kyh/",
-  //       formData,
-  //       {
-  //         headers: {
-  //           "Content-Type": "multipart/form-data",
-  //         },
-  //       }
-  //     );
+    try {
+      const response = await axios.post(
+        "http://43.202.138.58:8000/kyh/",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
-  //     console.log("File uploaded successfully", response.data);
-  //   } catch (error) {
-  //     console.error("Error uploading the file", error);
-  //   }
-  // };
+      console.log("File uploaded successfully", response.data);
+    } catch (error) {
+      console.error("Error uploading the file", error);
+    }
+  };
 
-  const [expanded, setExpanded] = React.useState<string | false>(false);
+  // const [expanded, setExpanded] = React.useState<string | false>(false);
 
-  const handleChange =
-    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panel : false);
-    };
+  // const handleChange =
+  //   (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+  //     setExpanded(isExpanded ? panel : false);
+  //   };
 
   return (
     <div>
-      {/* <input type="file" onChange={onFileChange} />
-      <button onClick={onUpload}>Upload</button> */}
-      <Accordion
+      <input type="file" onChange={onFileChange} />
+      <button onClick={onUpload}>Upload</button>
+      {/* <Accordion
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
       >
@@ -115,7 +115,7 @@ const Example: React.FC = () => {
         <AccordionDetails>
           <Typography>질문4 대답</Typography>
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
     </div>
   );
 };

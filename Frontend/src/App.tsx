@@ -9,8 +9,7 @@ import Header from "./components/common/Header";
 
 import Home from "./pages/Home";
 
-import FromeImgae from "./pages/FromImgae";
-import FromText from "./pages/FromText";
+import FromeImage from "./pages/FromImage";
 import Place from "./pages/Place";
 
 import SignUp from "./pages/SignUp";
@@ -19,9 +18,6 @@ import FindPWD from "./pages/Findpwd";
 import LoginHandler from "./pages/LoginHandler";
 
 import UserInfo from "./pages/Userinfo";
-import LikePlaces from "./pages/LikePlaces";
-import LikeUsers from "./pages/LikeUsers";
-import PostReview from "./pages/PostReview";
 
 import Example from "./pages/Example";
 import Footer from "./components/common/Footer";
@@ -40,10 +36,8 @@ const App: React.FC = () => {
               {/* 홈/메인 */}
               <Route path="/main" element={<Home />} />
               {/* 여행지 찾기 */}
-              <Route path="/fromimage" element={<FromeImgae />} />
-              <Route path="/fromtext" element={<FromText />} />
+              <Route path="/fromimage" element={<FromeImage />} />
               <Route path="/place/:id" element={<Place />} />
-              <Route path="/postreview/:id" element={<PostReview />} />
               {/* 로그인 */}
               <Route path="/signup" element={<SignUp />} />
               <Route path="/login" element={<Login />} />
@@ -54,8 +48,6 @@ const App: React.FC = () => {
               />
               {/* 마이페이지 */}
               <Route path="/userinfo" element={<UserInfo />} />
-              <Route path="/likeplaces" element={<LikePlaces />} />
-              <Route path="/likeusers" element={<LikeUsers />} />
               {/* 컴포넌트 연습 페이지 */}
               <Route path="/example" element={<Example />} />
             </Routes>

@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../lib/types/redux";
+import { kakaoSlice, placeName } from "../../../lib/redux/store";
 
 export const PLACEINRFO = () => {
   const isLogin = useSelector((state: RootState) => state.login.value);
@@ -16,10 +17,18 @@ export const PLACEINRFO = () => {
     }
   };
 
+  const [placeInfoName, setPlaceInfoName] = useState("광안리 해수욕장");
+
+  // useEffect(() => {
+  //   // 장소가 바뀔때마다 redux placeName이 바뀜
+  //   const placeDispatch = useDispatch();
+  //   placeDispatch(placeName.actions.value(placeInfoName));
+  // }, [placeInfoName]);
+
   return (
     <div className="placeinfo">
       <div className="placename">
-        <h1>여행지 이름</h1>
+        <h1>{placeInfoName}</h1>
         {/* 좋아요 버튼 handler 추가해야함 백엔드 연동 */}
         <button
           className={isLike ? "heart-button liked" : "heart-button"}
