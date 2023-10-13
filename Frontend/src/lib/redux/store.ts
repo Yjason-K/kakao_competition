@@ -33,13 +33,24 @@ export const kakaoAccess = createSlice({
   },
 });
 
+export const placeName = createSlice({
+  name: "placeName",
+  initialState: { value: "" },
+  reducers: {
+    getplace: (state, action) => {
+      state.value = action.payload;
+    },
+  },
+});
+
 export const { login, logout } = loginSlice.actions;
-export const { kakaologin } = kakaoSlice.actions; // kakaoSlice에서의 액션도 내보내줍니다.
+export const { kakaologin } = kakaoSlice.actions;
 
 export const store = configureStore({
   reducer: {
     login: loginSlice.reducer,
     kakao: kakaoSlice.reducer,
-    kakaoAccess: kakaoAccess.reducer, // kakaoState를 저장소에 추가합니다.
+    kakaoAccess: kakaoAccess.reducer,
+    place: placeName.reducer,
   },
 });
