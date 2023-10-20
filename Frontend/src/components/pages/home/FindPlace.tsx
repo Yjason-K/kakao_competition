@@ -37,7 +37,8 @@ const FindPlace = () => {
   }, []);
 
   const navigate = useNavigate();
-  const btnHandler = () => {
+  const btnHandler = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
     navigate("/fromimage");
   };
 
